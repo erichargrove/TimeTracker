@@ -29,6 +29,13 @@ impl TimeEntry {
     pub fn is_running(&self) -> bool {
         self.end.is_none()
     }
+
+    pub fn duration(&self) -> chrono::Duration {
+        match self.end {
+            Some(end) => end - self.start,
+            None => Utc::now() - self.start,
+        }
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -51,5 +58,14 @@ impl TimeTracker {
     pub fn get_running_timer(&self) -> Option<&TimeEntry> {
         self.entries.iter().find(|entry| entry.is_running())
     }
-}
 
+    pub fn stop_current_timer(&mut self) -> bool {
+        for entry in &mut self.entries {
+            if entry.is_running() {
+                entry.stop();
+                return true;
+            }
+        }
+        false
+    }
+}

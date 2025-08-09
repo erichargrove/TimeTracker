@@ -1,0 +1,11 @@
+[[entries]]
+id = "9d279ce4-e0c3-42da-a33c-34cd492ec170"
+start = "2025-08-09T01:18:59.990553385Z"
+end = "2025-08-09T01:31:50.825489199Z"
+description = "Learning Rust"
+
+[[entries]]
+id = "710ffbc8-f4a1-468e-8b20-9c621ead16e4"
+start = "2025-08-09T01:19:25.732806546Z"
+end = "2025-08-09T01:31:57.032244365Z"
+description = "Another timer"
